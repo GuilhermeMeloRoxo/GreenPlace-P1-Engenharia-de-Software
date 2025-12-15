@@ -210,72 +210,80 @@ main {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 .form-box {
-        background-color: white;
-        width: 90%;
-        max-width: 500px;
-        margin: 40px auto 80px auto;
-        padding: 25px 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .form-box h1 {
-        color: #2b5b18;
-        margin-bottom: 2.5rem;
-        font-size: 4.5rem;
-        text-align: center;
-    }
-    .form-group {
-        margin-bottom: 25px;
-        text-align: left;
-    }
-    .form-group label {
-        font-size: 1.6rem;
-        color: #123106;
-        display: block;
-        margin-bottom: 0.8rem;
-        font-weight: bold;
-        font-size: 2rem;
-    }
-    .form-group input[type="text"], [type="password"], [type="email"] {
-        width: 100%;
-        padding: 1.4rem;
-        border-radius: 0.7rem;
-        border: 0.6rem solid #ccc;
-        font-size: 1.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        background-color: rgb(207, 241, 207);
-        margin: 0.5rem;
-    }
-    .form-group label[for="user"], [for="empresa"] {
-        display: inline-flex !important; 
-        align-items: center;
-        width: auto !important;
-        margin-right: 1.5rem;
-        margin-top: 0.5rem;
-        padding: 1rem 0;
-        cursor: pointer;
-    }
-    .form-group input[type="radio"] {
-        margin-right: 1.6rem;
-        accent-color: #123106;
-    }
-    button {
-        border-radius: 0.3rem;
-        width: 100%;
-        border: none;
-        background-color: #2b5b18;
-        color: white;
-        padding: 1.2rem;
-        font-size: 2rem;
-        font-weight: bold;
-    }
-    button:hover {
-        transform: scale(0.98);
-        box-shadow: 0 8px 20px #507a3f;
-    }
-    .campos-ocultos {
-        display: none;
-    }
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto 80px auto;
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.form-box h1 {
+    color: #2b5b18;
+    margin-bottom: 2.5rem;
+    font-size: 4.5rem;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+.form-group label {
+    font-size: 1.6rem;
+    color: #123106;
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.form-group input[type="text"], [type="password"] {
+    width: 100%;
+    padding: 1.4rem;
+    border-radius: 0.7rem;
+    border: 2px solid #ccc;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    background-color: rgb(207, 241, 207);
+    margin: 0.5rem;
+}
+.form-group input:focus{
+    outline: none;
+    border-color: #123106;
+}
+.form-group label[for="user"], [for="empresa"] {
+    display: inline-flex !important; 
+    align-items: center;
+    width: auto !important;
+    margin-right: 1.5rem;
+    margin-top: 0.5rem;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+.form-group input[type="radio"] {
+    margin-right: 1.6rem;
+    accent-color: #123106;
+}
+button {
+    border-radius: 0.3rem;
+    width: 100%;
+    border: none;
+    background-color: #2b5b18;
+    color: white;
+    padding: 1.2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+button:focus {
+    transform: scale(0.98);
+    box-shadow: 0 8px 210px #507a3f;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #123106;
+}
+.campos-ocultos {
+    display: none;
+}
 
 @media (min-width: 600px) and (max-width: 1024px) {
     .overlay {
