@@ -10,9 +10,8 @@ def formulario():
 
 @user_bp.route('/logout')
 def logout_usuario():
-    '''
-    logica logout_usuario
-    '''
-    return "logout"
+    session.pop('user_role', None)
+    flash('Logout realizado com sucesso!', 'success')
+    return redirect(url_for('index'))
 
 
