@@ -19,8 +19,7 @@ if not os.path.exists(data_dir):
 # Vai garatir o cabeçalho correto para o arquivo csv
 if not os.path.exists(cadastro_file):
     with open(cadastro_file, mode='w', encoding='utf-8', newline='') as arquivo_csv:
-        escritor = csv.DictWriter(arquivo_csv, fieldnames=['perfil','cpf','nome','cnpj','nome_empresa','senha'])
-        escritor.writeheader()
+        pass
 
 # Importando as blueprints
 from app.usuario_comum import user_bp
