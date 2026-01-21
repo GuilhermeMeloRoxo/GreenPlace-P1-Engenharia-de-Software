@@ -221,6 +221,7 @@ main {
     text-align: center;
     line-height: 1.5;
     margin: 30px 10px 20px;
+    font-weight: bold;
 }
 .info-site p {
     text-align: justify;
