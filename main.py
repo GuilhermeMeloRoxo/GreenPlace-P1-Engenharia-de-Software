@@ -121,6 +121,7 @@ def login():
                             break
             # Caso não ache ou senha não corresponda, exibe mensagem de erro
             flash('CNPJ ou senha incorretos.', 'error')
+            return render_template('login.html')
 
         # Quando enviar o form como usuário comum (CPF preenchido, CNPJ vazio)
         elif cpf and not cnpj:
@@ -138,9 +139,9 @@ def login():
                             return redirect(url_for('index'))
                         else:
                             break
-                # Caso não ache ou senha não corresponda, exibe mensagem de erro
-                flash('CPF ou senha incorretos.', 'error')
-                return redirect(url_for('login'))
+            # Caso não ache ou senha não corresponda, exibe mensagem de erro
+            flash('CPF ou senha incorretos.', 'error')
+            return render_template('login.html')
         else:
             flash('Digite um CPF/CNPJ válido', 'error')
 
