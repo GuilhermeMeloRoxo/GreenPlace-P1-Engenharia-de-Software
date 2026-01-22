@@ -19,7 +19,9 @@ if not os.path.exists(data_dir):
 # Vai garatir o cabeçalho correto para o arquivo csv
 if not os.path.exists(cadastro_file):
     with open(cadastro_file, mode='w', encoding='utf-8', newline='') as arquivo_csv:
-        pass
+        campos = ['cpf', 'nome','cnpj','nome_empresa','senha']
+        escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
+        escrever.writeheader()
 
 # Importando as blueprints
 from app.usuario_comum import user_bp
@@ -47,7 +49,7 @@ def cadastro():
 
         # Abre como 'reader' e verifica se o usuário está cadastrado
         with open(cadastro_file, mode='r', encoding='utf-8') as arquivo_csv:
-            leitor = csv.DictReader(arquivo_csv)
+            leitor = csv.DictReader(arquivo_csv, delimiter=';')
             cpf = request.form.get('cpf')
             cnpj = request.form.get('cnpj')
             if cnpj and not cpf:
@@ -67,9 +69,8 @@ def cadastro():
                             
         # Se não estiver cadastrado, abre como 'append' e adiciona as informações
         campos = ['cpf', 'nome','cnpj','nome_empresa','senha']
-        with open(cadastro_file, mode='a',  encoding='utf-8', newline='') as arquivo_csv:
-            escrever = csv.DictWriter(arquivo_csv, fieldnames=campos)
-            escrever.writeheader()
+        with open(cadastro_file, mode='a',  encoding='utf-8') as arquivo_csv:
+            escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
             # Explicitamente extrai os dados para garantir a ordem e evitar campos extras indesejados
             dados_usuario = {
                 'cpf': request.form.get('cpf', ''),
@@ -105,7 +106,7 @@ def login():
         if not cpf and cnpj:
             with open(cadastro_file, mode='r', encoding='utf-8') as arquivo_csv:
                 # Armazena os dados em um dicionário
-                leitor = csv.DictReader(arquivo_csv)
+                leitor = csv.DictReader(arquivo_csv, delimiter=';')
 
                 # Passa por cada linha do dicionário
                 for linha in leitor:
@@ -127,7 +128,7 @@ def login():
         elif cpf and not cnpj:
             with open(cadastro_file, mode='r', encoding='utf-8') as arquivo_csv:
                 # Armazena os dados em um dicionário
-                leitor = csv.DictReader(arquivo_csv)
+                leitor = csv.DictReader(arquivo_csv, delimiter=';')
                 for linha in leitor:
                     # Caso ache o CPF
                     if linha.get('cpf') == cpf:
