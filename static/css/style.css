@@ -1,3 +1,4 @@
+/* Configurações base */
 :root {
     font-size: 62.5%;
 }
@@ -19,7 +20,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
 header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -30,7 +30,6 @@ header {
     z-index: 2;
     width: 100%;
 }
-
 footer {
     position: absolute;
     bottom: 0;
@@ -43,31 +42,26 @@ footer {
     font-size: 1.2rem;
     z-index: 1;
 }
-
 .logo {
     width: 70px;
     border-radius: 99999px;
     padding: 5px;
     justify-self: left;
 }
-
 header h2 {
     font-size: 2.4em;
     padding: 0;
     justify-self: center;
 }
-
 /* Ícone hamburger */
 .menu-hamburger {
     justify-self: right;
     z-index: 1000;
     padding: 20px;
 }
-
 #menu-toggle {
     display: none;
 }
-
 .menu-icon {
     width: 35px;
     height: 30px;
@@ -77,7 +71,6 @@ header h2 {
     z-index: 5000;
     cursor: pointer;
 }
-
 .linha {
     width: 35px;
     height: 4px;
@@ -85,7 +78,6 @@ header h2 {
     border-radius: 2px;
     transition: all 0.3s ease;
 }
-
 /* Estilos do overlay */
 .overlay {
     position: fixed;
@@ -97,7 +89,6 @@ header h2 {
     transform: translateX(100%);
     transition: transform 0.5s ease-in-out;
 }
-
 /* Estilos do menu navegação */
 .menu-navegacao {
     text-align: center;
@@ -108,20 +99,17 @@ header h2 {
     align-self: center;
     margin-top: 70%;
 }
-
 .menu-navegacao ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
-
 .menu-navegacao ul li {
     margin: 20px 0;
     background-color: #f0f0f0;
     border-radius: 15px;
     padding: 0px;
 }
-
 .menu-navegacao ul li a {
     display: block;
     color: #248f24;
@@ -129,16 +117,13 @@ header h2 {
     font-size: 1.5rem;
     padding: 15px;
 }
-
 .menu-navegacao ul li:hover {
     background-color: #c1ffec;
 }
-
 /* Animação */
 #menu-toggle:checked + .menu-icon .linha:nth-child(1) {
     transform: rotate(45deg) translate(13px, 13px);
 }
-
 #menu-toggle:checked + .menu-icon .linha:nth-child(2) {
     opacity: 0;
 }
@@ -152,7 +137,6 @@ header h2 {
     position: fixed;
     transform: translateX(-100%) translateY(-50%);
 }
-
 /* Mensagem flash */
 .flash {
     background-color: #DCFCE7;
@@ -174,12 +158,10 @@ header h2 {
     text-align: center;
     max-width: 500px;
 }
-
 .mensagem_flask {
     font-size: 14px;
     width: 90%;
 }
-
 .botao-flash {
     background: none;
     color: black;
@@ -200,8 +182,7 @@ header h2 {
 .botao-flash:focus {
     outline: none;
 }
-
-/* Conteúdo */
+/* Página inicial */
 main {
     flex-grow: 1;
     z-index: 1;
@@ -264,6 +245,7 @@ main {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
+/* Páginas de cadastro/login */
 .form-box {
     display: flex;
     flex-direction: column;
@@ -343,6 +325,7 @@ button:hover {
 .campo-oculto {
     margin-bottom: 2.5rem;
 }
+/* Tabela da página de empresas */
 .tabela-container {
     overflow-x: auto;
     max-width: 780px;
@@ -382,6 +365,7 @@ td:nth-child(3) {
     background-color: rgb(217, 250, 198);
     font-weight: bold;
 }
+/* Página de empresas */
 .botao-download {
     display: block;
     background-color: #248f24;
@@ -410,60 +394,94 @@ td:nth-child(3) {
     margin-bottom: 10px;
     color: #123106;
 }
-
+/* Questionário para usuários comuns */
 .form-container {
     background-color: white;
-    padding: 30px;
+    padding: 4px 20px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto 50px;
-    max-width: 666px;
+    max-width: 599px;
 }
 .form-container h1 {
     text-align: center;
     color: #2b5b18;
-    padding: 10px 0;
-    font-size: 2.6em;
+    padding: 16px 0;
+    font-size: 3rem;
     margin: 10px;
 }
-.form-container p {
+.form-container h1 + p, #confirmar {
     font-size: 1.4rem;
     font-weight: bold;
     padding: 0 10px 10px;
+    text-align: justify;
+}
+.asterisco::after {
+    content: " *";
+    color: red;
+    font-size: 1.6rem;
+    font-weight: bold;
+    justify-content: end;
+}
+.form-container #confirmar + label {
+    font-size: 1.4rem;
+    padding: 10px;
+}
+.form-container label input[type="checkbox"] {
+    margin-right: 4px;
+    accent-color: #123106;
+}
+.form-container label input[type="checkbox"]:houver {
+    border-color: #123106;
 }
 .form-container fieldset {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 26px 4px;
     border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    background-color: #b0e79a;
 }
-.form-container legend {
+.form-container fieldset h3 {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #123106;
     padding-bottom: 10px;
 }
-.form-container label {
+.form-container label input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #123106;
+}
+.form-container label input[type="radio"]:houver {
+    border-color: #123106;
+}
+.form-container form p, #label-estado, .form-container label {
     font-size: 1.4rem;
+    padding: 20px 0 8px;
+}
+.form-container label {
+    padding: 3px 0;
 }
 .form-container select {
-    margin: 4px 0 24px;
+    margin-top: 4px;
     border: 1px solid #123106;
-    padding: 5px 0;
+    padding: 6px 2px;
     border-radius: 8px;
+    max-width: 160px;
 }
 .form-container select:hover {
-    border: 1px solid #248f24;
+    border: 1px solid #123106;
 }
 .form-container select:focus {
-    border: 2px solid #248f24;
+    border: 2px solid #123106;
 }
 .botao-container {
     display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding: 30px 0 15px 0;
+    justify-content: space-between;
+    padding: 22px 10px 15px ;
 }
 .form-container button {
     width: fit-content;
@@ -477,12 +495,14 @@ td:nth-child(3) {
     color: #123106;
 }
 @media (min-width: 600px) and (max-width: 1024px) {
+    /* Estilos do overlay */
     .overlay {
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
     }
+    /* Configurações base */
     header h2 {
         font-size: 3rem;
     }
@@ -490,10 +510,10 @@ td:nth-child(3) {
         margin-top: 50%;
         grid-template-columns: 30%;
     }
-
     footer {
         font-size: 1.5rem;
     }
+    /* Página inicial */
     .info-geral {
         font-size: 1.8rem;
         padding: 20px 25px 100px;
@@ -519,21 +539,23 @@ td:nth-child(3) {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         max-width: 1200px;
     }
+    /* Páginas de cadastro/login */
     .form-box {
         width: 75%;
         max-width: 600px;
         padding: 3rem;
     }
+    /* Tabela da página de empresas */
     .tabela-vazia, th, td {
         font-size: 1.6rem;
     }
+    /* Página de empresas */
     .info-empresa {
         padding: 50px 30px 160px;
         max-width: 700px;
         min-height: 800px;
         max-height: 1000px;
         margin: 10rem auto;
-
     }
     .info-empresa h3 {
         font-size: 2.8rem;
@@ -544,9 +566,34 @@ td:nth-child(3) {
         width: 40vw;
         height: fit-content;
     }
+    /* Questionário para usuários comuns */
+    .form-container {
+        margin: 40px auto 100px;
+        padding: 20px 32px;
+        max-width: 666px;
+    }
+    .form-container h1 {
+        font-size: 3.5rem;
+    }
+    .form-container h1 + p, #confirmar {
+        font-size: 1.5rem;
+    }
+    .asterisco::after {
+        font-size: 1.8rem;
+    }
+    .form-container form p, #label-estado, .form-container label, .form-container #confirmar + label {
+        font-size: 1.5rem;
+    }
+    .form-container fieldset h3 {
+        font-size: 2.4rem;
+    }
+    .form-container button {
+        font-size: 1.5rem;
+    }
 }
 
 @media (min-width: 1024px) {
+    /* Configurações base */
     body {
         min-height: 100vh;
     }
@@ -566,6 +613,11 @@ td:nth-child(3) {
         font-size: 1.8rem;
         position: static;
     }
+    .menu-navegacao {
+        margin-top: 0px;
+        margin-right: 12px;
+    }
+    /* Estilos do overlay */
     .overlay {
         bottom: 65%;
         left: 75%;
@@ -575,9 +627,11 @@ td:nth-child(3) {
         max-height: 250px;
         transform: translateX(100%);
     }
+    /* Mensagem flash */
     .flash{
         top: 15%;
     }
+    /* Página inicial */
     .info-geral {
         font-size: 1.8rem;
         padding: 20px 25px 150px;
@@ -601,10 +655,6 @@ td:nth-child(3) {
         font-size: 2.2em;
         margin: 20px 2px;
     }
-    .menu-navegacao {
-        margin-top: 0px;
-        margin-right: 12px;
-    }
     .info-site h3 {
         font-size: 2.5em;
         margin: 30px 2px;
@@ -620,10 +670,12 @@ td:nth-child(3) {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         max-width: 1400px;
     }
+    /* Páginas de cadastro/login */
     .form-box {
         max-width: 600px;
         padding: 3rem;
     }
+    /* Tabela da página de empresas */
     .tabela-vazia, th, td {
         font-size: 1.6rem;
     }
@@ -631,6 +683,7 @@ td:nth-child(3) {
         max-width: 900px;
         margin: 50px auto;
     }
+    /* Página de empresas */
     .info-empresa {
         margin: 5rem auto;
         padding: 30px 90px;
@@ -649,24 +702,29 @@ td:nth-child(3) {
         width: 25vw;
         height: fit-content;
     }
+    /* Questionário para usuários comuns */
     .form-container {
-        margin: 60px auto;
+        margin: 50px auto 80px;
+        padding: 20px 40px;
+        max-width: 900px;
     }
     .form-container h1 {
-        font-size: 3.4em;
-        padding-bottom: 20px;
+        font-size: 4rem;
     }
-    .form-container p, .form-container label, .form-container button {
+    .form-container h1 + p, #confirmar {
         font-size: 1.6rem;
     }
-    .form-container legend {
-        font-size: 2.6rem;
+    .asterisco::after {
+        font-size: 1.8rem;
     }
-    .form-container select {
-        font-size: 1.5rem;
+    .form-container form p, #label-estado, .form-container label, .form-container #confirmar + label {
+        font-size: 1.6rem;
     }
-    .botao-container {
-        gap: 280px;
+    .form-container fieldset h3 {
+        font-size: 2.8rem;
+    }
+    .form-container button {
+        font-size: 1.6rem;
     }
 }
 @media (max-width: 260px) {
