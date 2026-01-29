@@ -2,7 +2,9 @@
 
 {% block title %}Questionário - GreenPlace{% endblock %}
 {% block content %}
-<h1>Questionário Ambiental</h1>
+<div class="form-container">
+
+  <h1>Questionário Ambiental</h1>
   <p>Responda às perguntas abaixo de acordo com seus hábitos do dia a dia.</p>
 
   <form method="POST" action="{{ url_for('user.questionario') }}">
@@ -214,5 +216,4 @@
         <button type="reset" class="botao-resetar">Limpar respostas</button>
     </div>
   </form>
-</div>
-{% endblock %}
+</div>{% endblock %}
