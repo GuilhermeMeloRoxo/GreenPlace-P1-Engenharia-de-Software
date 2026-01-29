@@ -119,9 +119,9 @@ def login():
                         # Verifica se a senha corresponde e, se sim, procede login
                         if linha.get('senha') == senha:
                             username = linha.get('nome_empresa') or linha.get('nome')
-                            flash(f'Login bem sucedido, bem vindo(a) {username}!', 'success')
+                            flash(f'Login bem sucedido, bem vindo(a) à página de empresas, {username}!', 'success')
                             session['user_role'] = 'empresa'
-                            return redirect(url_for('index'))
+                            return redirect(url_for('empresa.dados'))
                         else:
                             break
             # Caso não ache ou senha não corresponda, exibe mensagem de erro
@@ -139,9 +139,9 @@ def login():
                         # Verifica se a senha corresponde e, se sim, procede login
                         if linha.get('senha') == senha:
                             username = linha.get('nome')
-                            flash(f'Login bem sucedido, bem vindo(a) {username}!', 'success')
+                            flash(f'Login bem sucedido, bem vindo(a) ao formulário, {username}!', 'success')
                             session['user_role'] = 'user'
-                            return redirect(url_for('index'))
+                            return redirect(url_for('user.questionario'))
                         else:
                             break
             # Caso não ache ou senha não corresponda, exibe mensagem de erro
