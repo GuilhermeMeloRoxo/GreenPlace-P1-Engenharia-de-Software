@@ -341,21 +341,21 @@ button:hover {
 th {
     background-color:#248f24;
     color: white;
-    padding: 8px;
+    padding: 4px;
     border: 1px solid rgb(26, 109, 19);
     font-size: 1.4rem;
     text-align: center;
 }
 td {
     text-align: center;
-    padding: 10px;
+    padding: 4px;
     border: 1px solid rgb(224, 224, 224);
     font-size: 1.4rem;
 }
 tr:nth-child(even) {
     background-color: rgb(217, 250, 198);
 }
-td:nth-child(3) {
+td:nth-child(6) {
     color: rgb(122, 122, 122);
     font-weight: bold;
 }
@@ -364,6 +364,20 @@ td:nth-child(3) {
     font-size: 1.2rem;
     background-color: rgb(217, 250, 198);
     font-weight: bold;
+}
+/* Paginação da tabela */
+.pagination-controls, #numeros-pagina {
+    display: flex;
+    justify-content: center;
+}
+button.pagination-btn {
+    border-radius: 0;
+    width: fit-content;
+    border: 1px solid rgb(26, 109, 19);
+    background-color:#248f24;
+}
+button.pagination-btn:hover {
+    background-color:#2b5b18;
 }
 /* Página de empresas */
 .botao-download {
@@ -607,7 +621,6 @@ td:nth-child(3) {
         font-size: 1.5rem;
     }
 }
-
 @media (min-width: 1024px) {
     /* Configurações base */
     body {
@@ -703,7 +716,7 @@ td:nth-child(3) {
     .info-empresa {
         margin: 5rem auto;
         padding: 30px 90px;
-        max-width: 1000px;
+        max-width: 1200px;
         height: 70%;
         min-height: 600px;
         max-height: 1000px;
