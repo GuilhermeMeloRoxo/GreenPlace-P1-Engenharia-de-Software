@@ -376,8 +376,21 @@ button.pagination-btn {
     border: 1px solid rgb(26, 109, 19);
     background-color:#248f24;
 }
+button.active {
+    background-color: #2b5b18;
+}
 button.pagination-btn:hover {
     background-color:#2b5b18;
+}
+.pagination-dots {
+    background-color: #248f24;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid rgb(26, 109, 19);
+    
 }
 /* Página de empresas */
 .botao-download {
