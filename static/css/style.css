@@ -53,6 +53,11 @@ header h2 {
     padding: 0;
     justify-self: center;
 }
+main {
+    flex-grow: 1;
+    z-index: 1;
+    width: 100%;
+}
 /* Ícone hamburger */
 .menu-hamburger {
     justify-self: right;
@@ -183,11 +188,6 @@ header h2 {
     outline: none;
 }
 /* Página inicial */
-main {
-    flex-grow: 1;
-    z-index: 1;
-    width: 100%;
-}
 .info-geral {
     padding: 20px 12px 80px;
     font-size: 1.6rem;
@@ -368,15 +368,23 @@ td:nth-child(3) {
 /* Página de empresas */
 .botao-download {
     display: block;
-    background-color: #248f24;
+    background-color: #2b5b18;
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     width: fit-content;
     margin: 0 auto;
-    border-radius: 15px;
+    border-radius: 8px;
+}
+.botao-download:hover {
+    background-color: #123106;
+    cursor: pointer;
+}
+.botao-download:focus {
+    transform: scale(0.98);
+    box-shadow: 0 8px 210px #507a3f;
 }
 .info-empresa {
     font-size: 1.6rem;
@@ -493,6 +501,10 @@ td:nth-child(3) {
 .form-container .botao-resetar {
     background: none;
     color: #2b5b18;
+}
+.form-container .botao-resetar:focus {
+    transform: scale(0.98);
+    box-shadow: 0 8px 210px #507a3f;
 }
 .form-container .botao-resetar:hover {
     color: #123106;
