@@ -252,7 +252,7 @@ main {
     background-color: white;
     max-width: 350px;
     max-height: 650px;
-    margin: 10rem auto;
+    margin: 30px auto 80px;
     padding: 25px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -260,7 +260,7 @@ main {
 .form-box h1 {
     color: #2b5b18;
     margin-bottom: 2.5rem;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: center;
 }
 .form-group {
@@ -547,6 +547,7 @@ td:nth-child(3) {
         width: 75%;
         max-width: 600px;
         padding: 3rem;
+        margin: 50px auto 80px;
     }
     /* Tabela da página de empresas */
     .tabela-vazia, th, td {
