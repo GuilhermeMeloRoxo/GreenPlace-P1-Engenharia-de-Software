@@ -42,11 +42,32 @@ def questionario():
         carona = request.form.get('carona')
 
         if transporte == "carro":
+            if transporte_publico == 'sempre':
+                field_transporte += padrao_carro * 0.5
+                field_transporte += padrao_onibus * 0.5
+            elif transporte_publico == 'as_vezes':
+                field_transporte += padrao_carro * 0.7
+                field_transporte += padrao_onibus * 0.3
+            elif transporte_publico == 'raramente':
+                field_transporte += padrao_carro * 0.9
+                field_transporte += padrao_onibus * 0.1
+            elif transporte_publico == "nunca":
                 field_transporte += padrao_carro
-        elif transporte == 'moto':
-                field_transporte += padrao_moto   
 
-        if transporte == 'onibus':
+        elif transporte == 'moto':
+            if transporte_publico == 'sempre':
+                field_transporte += padrao_moto * 0.5
+                field_transporte += padrao_onibus * 0.5
+            elif transporte_publico == 'as_vezes':
+                field_transporte += padrao_moto * 0.7
+                field_transporte += padrao_onibus * 0.3
+            elif transporte_publico == 'raramente':
+                field_transporte += padrao_moto * 0.9
+                field_transporte += padrao_onibus * 0.1
+            elif transporte_publico == "nunca":
+                field_transporte += padrao_moto  
+
+        elif transporte == 'onibus':
             if transporte_publico == 'sempre':
                 field_transporte += padrao_onibus
             elif transporte_publico == 'as_vezes':
@@ -54,18 +75,7 @@ def questionario():
             elif transporte_publico == 'raramente':
                 field_transporte += padrao_onibus - (padrao_onibus * 0.7)
 
-        else:
-            if transporte_publico == 'sempre':
-                field_transporte += padrao_onibus * 0.5
-            elif transporte_publico == 'as_vezes':
-                field_transporte += padrao_onibus * 0.3
-            elif transporte_publico == 'raramente':
-                field_transporte += padrao_onibus * 0.1
-            elif transporte_publico == "nunca" and (transporte == 'carro' or transporte == 'moto'):
-                if transporte == "carro":
-                    field_transporte += padrao_carro * 0.1
-                elif transporte == 'moto':
-                    field_transporte += padrao_carro * 0.1
+        
         
         if carona == "sempre":
             field_transporte -= field_transporte * 0.15
@@ -138,7 +148,7 @@ def questionario():
         if carne == 'diario':
             field_alimentacao += padrao_carne_vermelha
         elif carne == 'semanal':
-            field_alimentacao += (padrao_vegetariano + padrao_carne_vermelha)/2
+            field_alimentacao += (padrao_vegetariano * 0.6) + (padrao_carne_vermelha * 0.4)
         elif carne == 'raramente':
             field_alimentacao += (padrao_vegetariano * 0.8)+(padrao_carne_vermelha * 0.2)
         else:
@@ -182,13 +192,13 @@ def questionario():
         if emissao_final >= media_mundial * 1.5:
             pontuacao = 0
         elif emissao_final < media_mundial:
-            pontuacao = ((media_mundial - emissao_final)/4) + 50
+            pontuacao = ((media_mundial - emissao_final)/4) + 62.5
         else:
-            pontuacao = ((emissao_final - media_mundial)/4) - 50
+            pontuacao = ((emissao_final - media_mundial)/4) - 62.5
         #Arredondando o valor da pontuação para inteiro
         pontuacao = round(pontuacao)
         
-        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao', 'pontuacao']
+        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao_carbono', 'pontuacao']
         with open(respostas_file, mode='a',  encoding='utf-8', newline='') as arquivo_csv:
             escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
             dados_respostas = {

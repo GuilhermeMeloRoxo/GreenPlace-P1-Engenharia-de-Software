@@ -35,7 +35,7 @@ if not os.path.exists(cadastro_file):
 
 if not os.path.exists(respostas_file):
     with open(respostas_file, mode='w', encoding='utf-8', newline='') as arquivo_csv:
-        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao', 'pontuacao']
+        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao_carbono', 'pontuacao']
         escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
         escrever.writeheader()
 
