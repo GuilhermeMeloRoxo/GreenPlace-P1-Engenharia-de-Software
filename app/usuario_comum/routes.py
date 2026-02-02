@@ -67,7 +67,7 @@ def questionario():
             elif transporte_publico == "nunca":
                 field_transporte += padrao_moto  
 
-        elif transporte == 'onibus':
+        else:
             if transporte_publico == 'sempre':
                 field_transporte += padrao_onibus
             elif transporte_publico == 'as_vezes':
