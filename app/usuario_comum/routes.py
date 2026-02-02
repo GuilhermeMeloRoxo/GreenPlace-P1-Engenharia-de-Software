@@ -197,8 +197,8 @@ def questionario():
                 'genero': request.form.get('genero'),
                 'renda': request.form.get('renda'),
                 'estado': request.form.get('estado'),
-                'emissao': emissao_final,
-                'pontuacao': pontuacao,
+                'emissao_carbono': str(emissao_final),
+                'pontuacao': str(pontuacao),
             }
             escrever.writerow(dados_respostas)
         flash('Obrigado por contribuir com suas respostas!', 'success')
@@ -206,21 +206,6 @@ def questionario():
         return render_template('resultado.html', pontuacao=pontuacao, emissao=emissao_final, username=username)
     return render_template('questionario.html')
 
-@user_bp.route('/resultados_questionario')
-def resultados_questionario(pontuacao, emissao):
-    '''
-    Rota GET /resultados_questionario
-    Exibe os resultados do questionário com base na pontuação
-    '''
-    # Se o usuário ainda não respondeu ao questionário, redireciona para o questionário
-    if 'respondeu' not in session:
-        flash('Por favor, responda ao questionário primeiro.', 'error')
-        return redirect(url_for('user_bp.questionario'))
-    username = session.get('username')
-    emissao = request.args.get('emissao')
-    pontuacao = int(request.args.get('pontuacao'))
-    return render_template('resultados_questionario.html', pontuacao=pontuacao, emissao=emissao)
-    
 @user_bp.route('/logout')
 def logout_usuario():
     session.pop('user_role', None)
