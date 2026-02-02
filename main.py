@@ -2,6 +2,7 @@ from flask import Flask, url_for, session, flash, render_template, redirect, req
 import csv
 import os
 from dotenv import load_dotenv
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Carrega as variáveis do .env
 load_dotenv()
@@ -61,6 +62,9 @@ def cadastro():
         Vai testar se o CPF/CNPJ está cadastrado, se estiver, redireciona para página de login
         Se não estiver, salva as informações de cadastro e redireciona para página de login
         """
+        # Gera o hash + salt automaticamente
+        senha = request.form.get('senha')
+        hashed_senha = generate_password_hash(senha, method='pbkdf2:sha256', salt_length=32)
 
         # Abre como 'reader' e verifica se o usuário está cadastrado
         with open(cadastro_file, mode='r', encoding='utf-8') as arquivo_csv:
@@ -92,7 +96,7 @@ def cadastro():
                 'nome': request.form.get('nome', ''),
                 'cnpj': request.form.get('cnpj', ''),
                 'nome_empresa': request.form.get('nome_empresa', ''),
-                'senha': request.form.get('senha')
+                'senha': hashed_senha
             }
             escrever.writerow(dados_usuario)
         flash('Cadastro realizado com sucesso! Faça seu  login', 'success')
@@ -116,7 +120,7 @@ def login():
         cpf = request.form.get('cpf')
         cnpj = request.form.get('cnpj')
         senha =  request.form.get('senha')
-        
+
         # Quando enviar o form como usuário empresa (CNPJ preenchido, CPF vazio)
         if not cpf and cnpj:
             with open(cadastro_file, mode='r', encoding='utf-8') as arquivo_csv:
@@ -127,9 +131,9 @@ def login():
                 for linha in leitor:
                     # Caso ache o CNPJ
                     if linha.get('cnpj') == cnpj:
-                        # Verifica se a senha corresponde e, se sim, procede login
-                        if linha.get('senha') == senha:
-                            username = linha.get('nome_empresa') or linha.get('nome')
+                        # Verifica se a senha corresponde com o hash salvo, se sim, procede login
+                        if check_password_hash(linha.get('senha'), senha):
+                            username = linha.get('nome_empresa')
                             flash(f'Login bem sucedido, bem vindo(a) à página de empresas, {username}!', 'success')
                             session['user_role'] = 'empresa'
                             return redirect(url_for('empresa.dados'))
@@ -147,8 +151,8 @@ def login():
                 for linha in leitor:
                     # Caso ache o CPF
                     if linha.get('cpf') == cpf:
-                        # Verifica se a senha corresponde e, se sim, procede login
-                        if linha.get('senha') == senha:
+                        # Verifica se a senha corresponde com o hash salvo, se sim, procede login
+                        if check_password_hash(linha.get('senha'), senha):
                             username = linha.get('nome')
                             flash(f'Login bem sucedido, bem vindo(a) ao formulário, {username}!', 'success')
                             session['user_role'] = 'user'

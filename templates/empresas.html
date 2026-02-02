@@ -15,20 +15,26 @@
             <thead>
                 <tr>
                     <th>Data de Resposta</th>
-                    <th>Usuário</th>
+                    <th>Faixa Etária</th>
+                    <th>Gênero</th>
+                    <th>Renda Mensal</th>
+                    <th>Estado</th>
                     <th>Emissão de Carbono</th>
                     <th>Pontuação</th>
                 </tr>
             </thead>
             <tbody>
-                {# A lógica será usada quando passar os dados via Flask
-                talvez até dê pra tirar esse comentário dps #}
+                <!-- {# A lógica será usada quando passar os dados via Flask
+                talvez até dê pra tirar esse comentário dps #} -->
                 {% if respostas %}
                 {% for resposta in respostas %}
                 <tr>
                     <td>{{ resposta.data_resposta }}</td>
-                    <td>{{ resposta.usuario }}</td> 
-                    <td>{{ resposta.quantidade_emissao }} Kg</td>
+                    <td>{{ resposta.idade }}</td> 
+                    <td>{{ resposta.genero }}</td>
+                    <td>{{ resposta.renda }}</td> 
+                    <td>{{ resposta.estado }}</td> 
+                    <td>{{ resposta.emissao_carbono }} Kg</td>
                     <td>{{ resposta.pontuacao }}%</td>
                 </tr>
                 {% endfor %}

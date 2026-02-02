@@ -341,16 +341,18 @@ button:hover {
 th {
     background-color:#248f24;
     color: white;
-    padding: 4px;
+    padding: 4px 8px;
+    min-width: 86px;
     border: 1px solid rgb(26, 109, 19);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-align: center;
 }
 td {
     text-align: center;
-    padding: 4px;
+    padding: 4px 8px;
     border: 1px solid rgb(224, 224, 224);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    min-width: 86px;
 }
 tr:nth-child(even) {
     background-color: rgb(217, 250, 198);
@@ -364,17 +366,25 @@ td:nth-child(6) {
     font-size: 1.2rem;
     background-color: rgb(217, 250, 198);
     font-weight: bold;
+    padding: 4px 8px;
+    min-width: 86px;
 }
 /* Paginação da tabela */
 .pagination-controls, #numeros-pagina {
     display: flex;
     justify-content: center;
+    overflow: hidden;
+}
+.pagination-controls {
+    margin: 20px;
 }
 button.pagination-btn {
     border-radius: 0;
-    width: fit-content;
     border: 1px solid rgb(26, 109, 19);
     background-color:#248f24;
+    padding: 10px 8px;
+    font-size: 1.6rem;
+    width: fit-content;
 }
 button.active {
     background-color: #2b5b18;
@@ -390,7 +400,22 @@ button.pagination-btn:hover {
     width: fit-content;
     padding: 5px;
     border: 1px solid rgb(26, 109, 19);
-    
+}
+.pagination-info, .items-per-page{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.items-per-page {
+    margin-bottom: 50px;
+}
+select#selecao-itens {
+    font-size: 1.4rem;
+    border: 1px solid #123106;
+    border-radius: 8px;
+    padding: 2px;
+}
+select#selecao-itens:focus {
+    border: 2px solid #123106;
 }
 /* Página de empresas */
 .botao-download {
@@ -402,12 +427,12 @@ button.pagination-btn:hover {
     padding: 10px;
     text-align: center;
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     border-radius: 8px;
+    font-weight: bold;
 }
 .botao-download:hover {
     background-color: #123106;
-    cursor: pointer;
 }
 .botao-download:focus {
     transform: scale(0.98);
@@ -419,7 +444,7 @@ button.pagination-btn:hover {
     align-self: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-height: 90svh;
-    padding: 40px 20px 0px;
+    padding: 20px 20px 80px;
     text-align: justify;
 }
 .info-empresa h3 {
@@ -590,14 +615,21 @@ button.pagination-btn:hover {
     }
     /* Tabela da página de empresas */
     .tabela-vazia, th, td {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+    }
+    /* Paginação da tabela */
+    button.pagination-btn {
+        font-size: 1.8rem;
+        padding: 10px 12px;
+    }
+    .items-per-page {
+        margin-bottom: 60px;
     }
     /* Página de empresas */
     .info-empresa {
-        padding: 30px 30px 160px;
+        padding: 20px 30px 150px;
         max-width: 1024px;
         min-height: 800px;
-        max-height: 1000px;
         margin: 0 auto;
     }
     .info-empresa h3 {
@@ -606,8 +638,7 @@ button.pagination-btn:hover {
     .botao-download {
         margin: 32px auto;
         font-size: 1.8rem;
-        width: 40vw;
-        height: fit-content;
+        width: fit-content;
     }
     /* Questionário para usuários comuns */
     .form-container {
@@ -720,19 +751,31 @@ button.pagination-btn:hover {
     /* Tabela da página de empresas */
     .tabela-vazia, th, td {
         font-size: 1.6rem;
+        min-width: 100px;
+        padding: 8px 12px;
     }
     .tabela-container {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 50px auto;
+    }
+    /* Paginação da tabela */
+    button.pagination-btn {
+        font-size: 2rem;
+        padding: 12px 14px;
+    }
+    .items-per-page {
+        margin-bottom: 60px;
+    }
+    .pagination-info, .items-per-page{
+        font-size: 1.6rem;
     }
     /* Página de empresas */
     .info-empresa {
-        margin: 5rem auto;
-        padding: 30px 90px;
+        margin: 2rem auto 6rem;
+        padding: 30px 90px 100px;
         max-width: 1200px;
         height: 70%;
         min-height: 600px;
-        max-height: 1000px;
         text-align: center;
         border-radius: 15px;
     }
@@ -742,8 +785,7 @@ button.pagination-btn:hover {
     .botao-download {
         margin: 50px auto;
         font-size: 1.8rem;
-        width: 25vw;
-        height: fit-content;
+        width: fit-content
     }
     /* Questionário para usuários comuns */
     .form-container {
