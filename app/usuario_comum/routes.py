@@ -189,8 +189,10 @@ def questionario():
         emissao_final = round(emissao_final, 2)
         
         #Calculo da pontuação
-        if emissao_final >= media_mundial * 1.5:
+        if emissao_final >= media_mundial * 1.375:
             pontuacao = 0
+        elif emissao_final <= media_mundial * 0.625:
+            pontuacao = 100
         elif emissao_final < media_mundial:
             pontuacao = ((media_mundial - emissao_final)/4) + 62.5
         else:
