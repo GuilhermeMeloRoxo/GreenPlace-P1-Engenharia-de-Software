@@ -29,13 +29,13 @@
                 {% if respostas %}
                 {% for resposta in respostas %}
                 <tr>
-                    <td>{{ resposta.data_resposta }}</td>
-                    <td>{{ resposta.idade }}</td> 
-                    <td>{{ resposta.genero }}</td>
-                    <td>{{ resposta.renda }}</td> 
-                    <td>{{ resposta.estado }}</td> 
-                    <td>{{ resposta.emissao_carbono }} Kg</td>
-                    <td>{{ resposta.pontuacao }}%</td>
+                    <td>{{ resposta['data'] }}</td>
+                    <td>{{ resposta['idade'] }}</td> 
+                    <td>{{ resposta['genero'] }}</td>
+                    <td>{{ resposta['renda'] }}</td> 
+                    <td>{{ resposta['estado'] }}</td> 
+                    <td>{{ resposta['emissao_carbono'] }} Kg</td>
+                    <td>{{ resposta['pontuacao'] }}%</td>
                 </tr>
                 {% endfor %}
                 {% else %}
