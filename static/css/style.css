@@ -594,6 +594,7 @@ select#selecao-itens:focus {
     padding: 20px;
     background-color: #b0e79a;
     border-radius: 10px;
+    text-align: center;
 }    
 @media (min-width: 600px) and (max-width: 1024px) {
     /* Estilos do overlay */
