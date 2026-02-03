@@ -221,6 +221,7 @@ def questionario():
 @user_bp.route('/logout')
 def logout_usuario():
     session.pop('user_role', None)
+    session.pop('username', None)
     flash('Logout realizado com sucesso!', 'success')
     return redirect(url_for('index'))
 
