@@ -561,6 +561,40 @@ select#selecao-itens:focus {
 .form-container .botao-resetar:hover {
     color: #123106;
 }
+.resultado {
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 40px auto 80px;
+    text-align: center;
+}
+.resultado h1 {
+    color: #2b5b18;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+.resultado h2 {
+    color: #248f24;
+    font-size: 5rem;
+    font-weight: bold;
+    margin: 30px 0;
+}
+.resultado h3 {
+    color: #123106;
+    font-size: 1.8rem;
+    margin: 20px 0;
+}
+.resultado p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin: 30px 10px;
+    text-align: justify;
+    padding: 20px;
+    background-color: #b0e79a;
+    border-radius: 10px;
+}    
 @media (min-width: 600px) and (max-width: 1024px) {
     /* Estilos do overlay */
     .overlay {
