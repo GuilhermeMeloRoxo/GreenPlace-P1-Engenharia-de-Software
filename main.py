@@ -136,6 +136,7 @@ def login():
                             username = linha.get('nome_empresa')
                             flash(f'Login bem sucedido, bem vindo(a) à página de empresas, {username}!', 'success')
                             session['user_role'] = 'empresa'
+                            session['username'] = username
                             return redirect(url_for('empresa.dados'))
                         else:
                             break
@@ -156,6 +157,7 @@ def login():
                             username = linha.get('nome')
                             flash(f'Login bem sucedido, bem vindo(a) ao formulário, {username}!', 'success')
                             session['user_role'] = 'user'
+                            session['username'] = username
                             return redirect(url_for('user.questionario'))
                         else:
                             break
