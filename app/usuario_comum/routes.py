@@ -14,6 +14,10 @@ def questionario():
     Rota GET/POST /questionario
     Exibe o questionário e processa autenticação
     '''
+    if 'username' not in session:
+        flash('Você precisa estar logado para responder o qusetionário.', 'warning')
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         # Processa os dados do questionário aqui
         # Obtém data(dia/mês/ano) da resposta
