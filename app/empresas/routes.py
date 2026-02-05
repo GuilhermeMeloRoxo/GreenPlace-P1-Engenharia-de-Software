@@ -30,6 +30,7 @@ def dados():
 @empresa_bp.route('/logout')
 def logout_empresa():
     session.pop('user_role', None)
+    session.pop('username', None)
     flash('Logout realizado com sucesso', 'success')
     return redirect(url_for('index'))
 
