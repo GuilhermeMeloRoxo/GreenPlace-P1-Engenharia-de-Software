@@ -1,7 +1,8 @@
 from flask import render_template, send_from_directory, session, flash, redirect, url_for, send_file
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import getSampleStyleSheet
 from . import empresa_bp
 import os
 import csv
@@ -55,6 +56,12 @@ def baixar_dados():
 
     pdf = SimpleDocTemplate(caminho_pdf, pagesize=A4)
     elementos = []
+
+    styles = getSampleStyleSheet()
+    titulo = Paragraph("Tabela Questionário - GreenPlace", styles['Title'])
+    elementos.append(titulo)
+
+    elementos.append(Spacer(1, 12))
 
     tabela = Table(dados, repeatRows=1)
 
