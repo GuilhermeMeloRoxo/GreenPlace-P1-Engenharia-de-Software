@@ -193,15 +193,15 @@ def questionario():
         emissao_final = round(emissao_final, 2)
         
         #Calculo da pontuação
-        if emissao_final >= media_mundial * 1.375:
-            pontuacao = 0
-        elif emissao_final <= media_mundial * 0.625:
-            pontuacao = 100
-        elif emissao_final < media_mundial:
+        if emissao_final < media_mundial:
             pontuacao = ((media_mundial - emissao_final)/4) + 62.5
         else:
             pontuacao = ((emissao_final - media_mundial)/4) - 62.5
         #Arredondando o valor da pontuação para inteiro
+        if pontuacao < 0:
+            pontuacao += 50
+        if pontuacao > 100:
+            pontuacao = 100
         pontuacao = round(pontuacao)
         
         campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao_carbono', 'pontuacao']
