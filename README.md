@@ -2,7 +2,7 @@
 Projeto do primeiro período do curso de Engenharia de Software - IFPB Campus João Pessoa
 
 ## Descrição
-O GreenPlace é um espaço criado para ajudar pessoas a entenderem o impacto de suas escolhas no meio ambiente. A partir de um formulário simples e intuitivo, o usuário responde perguntas sobre seus hábitos do dia a dia e, ao final, recebe uma pontuação que representa o nível de carbono que emite. acompanhada de uma classificação visual clara e fácil de interpretar. 
+O GreenPlace é um espaço criado para ajudar pessoas a entenderem o impacto de suas escolhas no meio ambiente. A partir de um formulário simples e intuitivo, o usuário responde perguntas sobre seus hábitos do dia a dia e, ao final, recebe uma pontuação que representa o nível de carbono que emite. Acompanhada de uma classificação visual clara e fácil de interpretar. 
 
 Além disso, a plataforma também oferece um ambiente voltado para empresas e instituições interessadas em dados ambientais. Esses perfis podem acessar informações consolidadas dos usuários, visualizar resultados em tabelas e gerar relatórios em PDF, contribuindo para análises, pesquisas e estudos relacionados à emissão de carbono e à sustentabilidade.
 
