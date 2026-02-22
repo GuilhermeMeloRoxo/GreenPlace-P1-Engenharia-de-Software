@@ -36,38 +36,34 @@ Além disso, a plataforma também oferece um ambiente voltado para empresas e in
 
 ## Estrutura do Projeto
 
-    GreenPlace/
-      ├── app/              # Pacotes e rotas
-          ├── empresas/
-              ° __init__.py
-              ° routes.py
-          └── usuario_comum/
-              ° __init__.py
-              ° routes.py
-          ° __init__.py
-      ├── data/             # Armazenamento
-      ├── docs/             # Documentos do projeto
-          ° Arquitetura.drawio.pdf
-          ° emissao-carbono.md
-      ├── static/           # Estilos e interação
-          ├── css/
-              ° style.css
-          ├── imagens/
-              ° logo.png
-          └── js/
-              ° script.js
-      └── templates/       # Páginas da aplicação
-          ° base.html
-          ° cadastro.html
-          ° empresas.html
-          ° index.html
-          ° login.html
-          ° questionario.html
-          ° resultado.html
-      ° .gitignore
-      ° README.md
-      ° main.py
-      ° requirements.txt
+      GreenPlace-P1-Engenharia-de-Software/
+      ├── app/                             # Pacotes e rotas
+      |   ├── empresas/
+      |   |   ├── __init__.py
+      |   |   └── routes.py
+      |   ├── usuario_comum/
+      |   |   ├── __init__.py
+      |   |   └── routes.py
+      |   └── __init__.py
+      ├── data/                            # Armazenamento
+      ├── docs/                            # Documentos do projeto
+      ├── static/                          # Estilos e interação
+      |   ├── css/
+      |   |   └── style.css
+      |   ├── imagens/
+      |   |   └── logo.png
+      |   └── js/
+      |       └── script.js
+      ├── templates/                      # Páginas da aplicação
+      |   ├── base.html
+      |   ├── cadastro.html
+      |   ├── empresas.html
+      |   ├── index.html
+      |   ├── login.html
+      |   ├── questionario.html
+      |   └── resultado.html
+      ├── main.py
+      └── requirements.txt
       
 ## Autores
 - **Gabriel Neres** - Desenvolvimento Full Stack - [@GabrielNeres](https://github.com/GabrielNeres44)
