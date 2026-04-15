@@ -19,20 +19,20 @@ Além disso, a plataforma também oferece um ambiente voltado para empresas e in
 ## Como Executar
 
 ### Pré-requisitos
-- Python
-- Outras dependências específicas
+- Python 3.14
+- Outras dependências
 
 ### Instalação
-1. Clone o repositório
-   git clone https://github.com/GuilhermeMeloRoxo/GreenPlace-P1-Engenharia-de-Software.git
-2. Criar e ativar um ambiente virtual (opcional)
+1. Clone o repositório:
+   - git clone https://github.com/GuilhermeMeloRoxo/GreenPlace-P1-Engenharia-de-Software.git
+2. Criar e ativar um ambiente virtual (opcional):
    - Criar: python3 venv venv (python venv venv)
    - Ativar (Linux/macOS): source venv/bin/activate
    - Ativar (Windows): .\venv\Scripts\Activate
-4. Instale as dependências
-   pip install -r requirements.txt
-5. Execute o projeto
-   python main.py
+4. Instale as dependências:
+   - pip install -r requirements.txt
+5. Execute o projeto:
+   - python main.py
 
 ## Estrutura do Projeto
 
