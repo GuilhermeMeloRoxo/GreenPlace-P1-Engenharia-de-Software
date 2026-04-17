@@ -26,7 +26,7 @@ Além disso, a plataforma também oferece um ambiente voltado para empresas e in
 1. Clone o repositório:
    - git clone https://github.com/GuilhermeMeloRoxo/GreenPlace-P1-Engenharia-de-Software.git
 2. Criar e ativar um ambiente virtual (opcional):
-   - Criar: python3 venv venv (python venv venv)
+   - Criar: python3 -m venv venv (python -m venv venv)
    - Ativar (Linux/macOS): source venv/bin/activate
    - Ativar (Windows): .\venv\Scripts\Activate
 4. Instale as dependências:
