@@ -29,18 +29,18 @@
                 {% if respostas %}
                 {% for resposta in respostas %}
                 <tr>
-                    <td>{{ resposta['data'] }}</td>
-                    <td>{{ resposta['idade'] }}</td> 
-                    <td>{{ resposta['genero'] }}</td>
-                    <td>{{ resposta['renda'] }}</td> 
-                    <td>{{ resposta['estado'] }}</td> 
-                    <td>{{ resposta['emissao_carbono'] }} Kg</td>
-                    <td>{{ resposta['pontuacao'] }}%</td>
+                    <td>{{ resposta['Data'] }}</td>
+                    <td>{{ resposta['Idade'] }}</td> 
+                    <td>{{ resposta['Gênero'] }}</td>
+                    <td>{{ resposta['Renda'] }}</td> 
+                    <td>{{ resposta['Estado'] }}</td> 
+                    <td>{{ resposta['Emissão de Carbono'] }}</td>
+                    <td>{{ resposta['Pontuação'] }}</td>
                 </tr>
                 {% endfor %}
                 {% else %}
                 <tr>
-                    <td colspan="5" class="tabela-vazia">Nenhuma resposta encontrada</td>
+                    <td colspan="7" class="tabela-vazia">Nenhuma resposta encontrada</td>
                 </tr>
                 {% endif %}
 

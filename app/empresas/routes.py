@@ -7,7 +7,6 @@ from . import empresa_bp
 import os
 import csv
 
-
 data_dir =  'data'
 respostas_file = os.path.join(data_dir, 'respostas_questionario.csv')
 
@@ -25,14 +24,14 @@ def dados():
                 lista.append(linha)
         return render_template('empresas.html', respostas=lista)
     else:
-        flash('Por favor, faça o login como empresa para prosseguir.')
+        flash('Por favor, faça o login como empresa para prosseguir!')
         return redirect(url_for('index'))
 
 @empresa_bp.route('/logout')
 def logout_empresa():
     session.pop('user_role', None)
     session.pop('username', None)
-    flash('Logout realizado com sucesso', 'success')
+    flash('Logout realizado com sucesso!', 'success')
     return redirect(url_for('index'))
 
 @empresa_bp.route('/download')
@@ -41,7 +40,7 @@ def baixar_dados():
     lógica para baixar_dados
     """
     caminho_csv = os.path.join('data', 'respostas_questionario.csv')
-    caminho_pdf = os.path.join('data', 'relatorio_geral.pdf')
+    caminho_pdf = os.path.join('data', 'greenplace_tabela.pdf')
 
     if not os.path.exists(caminho_csv):
         return "Arquivo CSV ainda não existe", 404
@@ -58,7 +57,7 @@ def baixar_dados():
     elementos = []
 
     styles = getSampleStyleSheet()
-    titulo = Paragraph("Tabela Questionário - GreenPlace", styles['Title'])
+    titulo = Paragraph("Tabela GreenPlace - Pegada de Carbono", styles['Title'])
     elementos.append(titulo)
 
     elementos.append(Spacer(1, 12))

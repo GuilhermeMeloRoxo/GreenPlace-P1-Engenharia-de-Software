@@ -15,7 +15,7 @@ def questionario():
     Exibe o questionário e processa autenticação
     '''
     if 'username' not in session:
-        flash('Você precisa estar logado para responder o qusetionário.', 'warning')
+        flash('Você precisa estar logado para responder o questionário!', 'warning')
         return redirect(url_for('login'))
 
     if request.method == 'POST':
@@ -204,17 +204,17 @@ def questionario():
             pontuacao = 100
         pontuacao = round(pontuacao)
         
-        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao_carbono', 'pontuacao']
+        campos = ['Data', 'Idade', 'Gênero', 'Renda', 'Estado', 'Emissão de Carbono', 'Pontuação']
         with open(respostas_file, mode='a',  encoding='utf-8', newline='') as arquivo_csv:
             escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
             dados_respostas = {
-                'data': data_atual,
-                'idade': request.form.get('idade'),
-                'genero': request.form.get('genero'),
-                'renda': request.form.get('renda'),
-                'estado': request.form.get('estado'),
-                'emissao_carbono': str(emissao_final),
-                'pontuacao': str(pontuacao),
+                'Data': data_atual,
+                'Idade': request.form.get('idade'),
+                'Gênero': request.form.get('genero'),
+                'Renda': request.form.get('renda'),
+                'Estado': request.form.get('estado'),
+                'Emissão de Carbono': str(emissao_final) + " Kg",
+                'Pontuação': str(pontuacao) + "%",
             }
             escrever.writerow(dados_respostas)
         flash('Obrigado por contribuir com suas respostas!', 'success')
@@ -228,5 +228,3 @@ def logout_usuario():
     session.pop('username', None)
     flash('Logout realizado com sucesso!', 'success')
     return redirect(url_for('index'))
-
-

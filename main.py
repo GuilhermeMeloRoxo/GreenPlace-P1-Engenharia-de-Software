@@ -35,7 +35,7 @@ if not os.path.exists(cadastro_file):
 
 if not os.path.exists(respostas_file):
     with open(respostas_file, mode='w', encoding='utf-8', newline='') as arquivo_csv:
-        campos = ['data', 'idade', 'genero', 'renda', 'estado', 'emissao_carbono', 'pontuacao']
+        campos = ['Data', 'Idade', 'Gênero', 'Renda', 'Estado', 'Emissão de Carbono', 'Pontuação']
         escrever = csv.DictWriter(arquivo_csv, fieldnames=campos, delimiter=';')
         escrever.writeheader()
 
@@ -99,7 +99,7 @@ def cadastro():
                 'senha': hashed_senha
             }
             escrever.writerow(dados_usuario)
-        flash('Cadastro realizado com sucesso! Faça seu  login', 'success')
+        flash('Cadastro realizado com sucesso! Faça seu login.', 'success')
         return redirect(url_for('login'))
     
     return render_template('cadastro.html')
@@ -134,14 +134,14 @@ def login():
                         # Verifica se a senha corresponde com o hash salvo, se sim, procede login
                         if check_password_hash(linha.get('senha'), senha):
                             username = linha.get('nome_empresa')
-                            flash(f'Login bem sucedido, bem vindo(a) à página de empresas, {username}!', 'success')
+                            flash(f'Login bem-sucedido! Bem-vindo(a) à página de empresas, {username}!', 'success')
                             session['user_role'] = 'empresa'
                             session['username'] = username
                             return redirect(url_for('empresa.dados'))
                         else:
                             break
             # Caso não ache ou senha não corresponda, exibe mensagem de erro
-            flash('CNPJ ou senha incorretos.', 'error')
+            flash('CNPJ ou senha incorretos!', 'error')
             return render_template('login.html')
 
         # Quando enviar o form como usuário comum (CPF preenchido, CNPJ vazio)
@@ -155,17 +155,17 @@ def login():
                         # Verifica se a senha corresponde com o hash salvo, se sim, procede login
                         if check_password_hash(linha.get('senha'), senha):
                             username = linha.get('nome')
-                            flash(f'Login bem sucedido, bem vindo(a) ao formulário, {username}!', 'success')
+                            flash(f'Login bem-sucedido! Bem-vindo(a) ao questionário, {username}!', 'success')
                             session['user_role'] = 'user'
                             session['username'] = username
                             return redirect(url_for('user.questionario'))
                         else:
                             break
             # Caso não ache ou senha não corresponda, exibe mensagem de erro
-            flash('CPF ou senha incorretos.', 'error')
+            flash('CPF ou senha incorretos!', 'error')
             return render_template('login.html')
         else:
-            flash('Digite um CPF/CNPJ válido', 'error')
+            flash('Digite um CPF/CNPJ válido!', 'error')
 
 
 # Ponto de entrada da aplicação
