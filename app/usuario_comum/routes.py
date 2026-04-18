@@ -219,7 +219,7 @@ def questionario():
             escrever.writerow(dados_respostas)
         flash('Obrigado por contribuir com suas respostas!', 'success')
         username = session.get('username')
-        return render_template('resultado.html', pontuacao=pontuacao, emissao=emissao_final, username=username)
+        return render_template('resultado.html', resposta=dados_respostas, pontuacao=pontuacao, username=username)
     return render_template('questionario.html')
 
 @user_bp.route('/logout')
